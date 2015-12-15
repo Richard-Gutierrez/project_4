@@ -1,0 +1,178 @@
+
+//status deletion notices (delete)
+
+
+{
+  "delete":{
+    "status":{
+      "id":1234,
+      "id_str":"1234",
+      "user_id":3,
+      "user_id_str":"3"
+    }
+  }
+}
+
+//location deletion notices (scrub_geo)
+
+{
+  "scrub_geo":{
+    "user_id":14090452,
+    "user_id_str":"14090452",
+    "up_to_status_id":23260136625,
+    "up_to_status_id_str":"23260136625"
+  }
+}
+
+//limit notices(limit)
+
+{
+  "limit":{
+    "track":1234
+  }
+}
+
+//withheld content notices (status_withheld, user_withheld)
+
+{
+  "status_withheld":{
+      "id":1234567890,
+      "user_id":123456,
+      "withheld_in_countries":["DE", "AR"]
+  }
+}
+
+user_withheld
+
+{
+  "user_withheld":{
+    "id":123456,
+    "withheld_in_countries":["DE","AR"]
+  }
+}
+
+disconnect messages (disconnect)
+
+{
+  "disconnect":{
+    "code": 4,
+    "stream_name":"",
+    "reason":""
+  }
+}
+
+//stall warnings(warning)
+
+{
+  "warning":{
+    "code":"FALLING_BEHIND",
+    "message":"Your connection is falling behind and messages are being queued for delivery to you. Your queue is now over 60% full. You will be disconnected when the queue is full.",
+    "percent_full": 60
+  }
+}
+
+//User update
+
+{
+    "created_at": "Tue Aug 06 02:23:21 +0000 2013",
+    "source": {
+         ...
+    },
+    "target": {
+      ...
+    },
+    "event": "user_update"
+}
+
+//User stream messages ; friends lists (friends)
+
+{
+  "friends":[
+    1497,
+    169686021,
+    790205,
+    15211564,
+    ...
+  ]
+}
+
+{
+  "friends_str": [
+    "1497",
+    "169686021",
+    "790205",
+    "15211564",
+    ...
+  ]
+}
+
+//events (event)
+
+
+{
+  "event":"EVENT_NAME",
+  "created_at": "Sat Sep 4 16:10:54 +0000 2010",
+  "target": TARGET_USER,
+  "source": SOURCE_USER,
+  "target_object": TARGET_OBJECT
+}
+
+//Too many follows (warning)
+
+{
+  "warning": {
+    "code": "FOLLOWS_OVER_LIMIT",
+    "message": "The requested user follows more accounts than the maximum supported by this streaming endpoint. Only a subset of 10000 followed accounts are included in this stream.",
+    "user_id": <user_id>
+  }
+}
+
+
+//site stream messages ; envelopes(for_user)
+
+{
+  "for_user":1888,
+  "message":{"friends":[]}
+}
+{
+  "for_user":9160152,
+  "message":{"friends":[]}
+}
+
+
+{
+  "for_user_str":"1888",
+  "message":{"friends":[]}
+}
+{
+  "for_user_str":"9160152",
+  "message":{"friends":[]}
+}
+
+//control messages:
+
+{
+  "control":{
+    "control_uri": "/1.1/site/c/01_225167_334389048B872A533002B34D73F8C29FD09EFC50"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

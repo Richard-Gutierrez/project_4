@@ -1,0 +1,95 @@
+
+Missing counts;
+
+"user":{ "followers_count":-1,
+
+"friends_count":-1,
+
+"listed_count":null,
+
+"created_at":"Wed Sep 23 17:35:05 +0000 2009",
+
+"favourites_count":-1,
+
+"utc_offset":null,
+
+"time_zone":null,
+
+"geo_enabled":false,
+
+"verified":false,
+
+"statuses_count":-1,
+
+"lang":"en", ... }
+
+
+@ http = EventMachine::HttpRequest.new('STREAMING URL').post(:body=>BODY, :head => {"Content-Type" =>
+"application/x-www-form-urlencoded", "Accept-Encoding" => "deflate",
+"User-Agent" => "USER AGENT"}, :timeout => 90, :keepalive => true) do |client|
+
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.zip.GZIPInputStream;
+
+final class StreamingGZIPInputStream extends GZIPInputStream {
+    private final InputStream wrapped;
+    public StreamingGZIPInputStream(InputStream is) throws IOException {
+      super(is);
+      wrapped = is;
+    }
+
+    /**
+     * Overrides behavior of GZIPInputStream which assumes we have all the data available
+     * which is not true for streaming. We instead rely on the underlying stream to tell us
+     * how much data is available.
+     *
+     * Programs should not count on this method to return the actual number
+     * of bytes that could be read without blocking.
+     *
+     * @return - whatever the wrapped InputStream returns
+     * @exception  IOException  if an I/O error occurs.
+     */
+    public int available() throws IOException {
+      return wrapped.available();
+    }
+}
+
+
+
+Reader reader = new BufferedReader(new InputStreamReader(new
+GZIPInputStream(http.getInputStream());
+
+Reader reader = new BufferedReader(new InputStreamReader(new
+treamingGZIPInputStream(http.getInputStream());
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
